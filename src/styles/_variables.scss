@@ -1,0 +1,15 @@
+// Import the initial variables
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+// Overwriting styles
+$blue: #0A2B76;
+$blue-invert: #fff;
+
+$primary: $blue;
+$primary-invert: $blue-invert;
+
+$card-shadow: 0 3px 8px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.1);
+
+// Owm colors
+$grey-lightest: #F7F7F7;

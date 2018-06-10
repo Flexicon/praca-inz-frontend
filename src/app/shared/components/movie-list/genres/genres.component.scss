@@ -1,0 +1,8 @@
+.tag {
+    margin-right: 5px;
+    border: 1px solid #ddd;
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}

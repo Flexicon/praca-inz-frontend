@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    api: {
+        mongo: 'http://localhost:8081/mongo',
+        couch: 'http://localhost:8081/couch',
+    },
 };
 
 /*

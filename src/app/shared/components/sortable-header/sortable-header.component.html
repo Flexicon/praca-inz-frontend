@@ -1,0 +1,21 @@
+<div class="level is-mobile">
+    <label class="label">
+        Sort by
+    </label>
+    <div class="field has-addons">
+        <div class="control" *ngFor="let option of sortOptions">
+            <button class="button" [ngClass]="{'is-primary': option.active}" (click)="changeSort(option.column)">
+                <span class="icon" *ngIf="option.direction === 'asc'">
+                    <i class="fas fa-sort-up"></i>
+                </span>
+                <span class="icon" *ngIf="option.direction === 'desc'">
+                    <i class="fas fa-sort-down"></i>
+                </span>
+                <span class="icon" *ngIf="option.direction === null">
+                    <i class="fas fa-sort"></i>
+                </span>
+                <span>Added</span>
+            </button>
+        </div>
+    </div>
+</div>

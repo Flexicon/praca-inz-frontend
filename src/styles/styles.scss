@@ -1,0 +1,9 @@
+// Vars
+@import "variables";
+
+// Vendor
+@import "~bulma/bulma";
+
+body {
+    background: $grey-lightest;
+}

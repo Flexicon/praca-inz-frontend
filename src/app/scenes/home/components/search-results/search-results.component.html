@@ -1,0 +1,14 @@
+<div class="search-actions">
+    <div class="title">
+        Search > All Movies
+    </div>
+    <div class="level">
+        <app-sortable-header
+                [sort]="paginationData?.sort"
+                (sortSelected)="onSortSelected($event)"
+        ></app-sortable-header>
+    </div>
+</div>
+<div class="movies">
+    <app-movie-list [movies]="paginationData.items"></app-movie-list>
+</div>

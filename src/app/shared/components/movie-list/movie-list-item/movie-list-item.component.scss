@@ -1,0 +1,15 @@
+.title {
+    margin-bottom: 10px;
+}
+
+.movie-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1.5rem;
+}
+
+.movie-left {
+    padding-top: 0;
+    padding-bottom: 0;
+}
