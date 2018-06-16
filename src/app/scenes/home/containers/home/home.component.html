@@ -1,6 +1,29 @@
 <section class="section">
     <div class="container">
-        <app-search></app-search>
-        <app-search-results></app-search-results>
+        <app-search (searchPhrase)="handleSearch($event)"></app-search>
+
+        <div class="search-actions">
+            <div class="title">
+                <ng-container *ngIf="!paginationData?.phrase; else searchPhrase">
+                    All Movies
+                </ng-container>
+                <ng-template #searchPhrase>
+                    Search results > {{ !loading ? paginationData?.total : '' }}
+                </ng-template>
+            </div>
+            <div class="level">
+                <app-sortable-header [sort]="paginationData?.sort"
+                                     (sortSelected)="handleSortSelected($event)"
+                ></app-sortable-header>
+            </div>
+        </div>
+        <div id="movies">
+            <app-movie-list [movies]="paginationData.items"></app-movie-list>
+            <app-pagination [currentPage]="paginationData?.page"
+                            [totalPages]="paginationData?.totalPages"
+                            (pageSelected)="handlePageSelected($event)"
+            ></app-pagination>
+            <app-loader [loading]="loading"></app-loader>
+        </div>
     </div>
 </section>

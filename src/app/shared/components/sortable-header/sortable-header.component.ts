@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { SortOption } from '@app/shared/types/sort-option.type';
+import { sortOptions } from '@app/shared/repository/sort-options.repository';
 
 @Component({
     selector: 'app-sortable-header',
@@ -10,10 +11,7 @@ import { SortOption } from '@app/shared/types/sort-option.type';
 export class SortableHeaderComponent implements OnInit {
     private _sort: string;
     @Output() sortSelected = new EventEmitter<string>();
-    sortOptions: SortOption[] = [
-        { column: 'id', label: 'Added', direction: null, active: false },
-        { column: 'title', label: 'Title', direction: null, active: false },
-    ];
+    sortOptions: SortOption[] = sortOptions;
     column: string;
 
     constructor() {
@@ -35,8 +33,6 @@ export class SortableHeaderComponent implements OnInit {
                 option.active = false;
             }
         });
-
-        console.log(this.sortOptions);
     }
 
     get sort(): string {

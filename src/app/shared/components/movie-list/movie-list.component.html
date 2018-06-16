@@ -1,7 +1,13 @@
-<div class="movie-list">
+<div class="movie-list" *ngIf="movies?.length">
     <div class="columns is-multiline">
         <div class="column is-half movie-list-item-wrap" *ngFor="let movie of movies">
             <app-movie-list-item [movie]="movie"></app-movie-list-item>
         </div>
     </div>
+</div>
+
+<div class="no-results" *ngIf="movies?.length === 0">
+    <h1 class="title">
+        <i class="fas fa-frown"></i> No results found
+    </h1>
 </div>

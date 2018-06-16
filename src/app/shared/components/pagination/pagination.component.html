@@ -1,0 +1,21 @@
+<nav class="pagination" role="navigation" aria-label="pagination">
+    <button class="pagination-previous button" [disabled]="currentPage === 1" (click)="handlePreviousPageClick()">
+        Previous
+    </button>
+    <button class="pagination-next button" [disabled]="currentPage === totalPages" (click)="handleNextPageClick()">
+        Next page
+    </button>
+    <ul class="pagination-list">
+        <li>
+            <div class="level is-mobile">
+                <span>Showing page</span>
+                <div class="control control-page-select">
+                    <input class="input" type="number" min="1" [(ngModel)]="currentPage" (change)="handlePageSelect()">
+                </div>
+                <span>of
+                    <strong>{{totalPages}}</strong>
+                </span>
+            </div>
+        </li>
+    </ul>
+</nav>

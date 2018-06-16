@@ -1,10 +1,13 @@
 <div class="search">
     <div class="field has-addons">
         <div class="control input-wrap">
-            <input class="input is-medium" type="search" placeholder="Title, genre...">
+            <input class="input is-medium"
+                   [(ngModel)]="phrase"
+                   (search)="handleSubmit()"
+                   type="search" placeholder="Title, year...">
         </div>
         <div class="control">
-            <button class="button is-primary is-medium">Search</button>
+            <button class="button is-primary is-medium" type="submit" (click)="handleSubmit()">Search</button>
         </div>
     </div>
 </div>
