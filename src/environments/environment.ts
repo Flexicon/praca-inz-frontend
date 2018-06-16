@@ -4,10 +4,7 @@
 
 export const environment = {
     production: false,
-    api: {
-        mongo: 'http://localhost:8081/mongo',
-        couch: 'http://localhost:8081/couch',
-    },
+    api: 'http://localhost:8081/',
 };
 
 /*

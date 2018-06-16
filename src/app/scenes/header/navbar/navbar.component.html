@@ -7,13 +7,13 @@
                     MovieRoll
                 </span>
             </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span class="navbar-burger burger" [ngClass]="{ 'is-active': isMenuOpen }" (click)="isMenuOpen = !isMenuOpen">
                 <span></span>
                 <span></span>
                 <span></span>
             </span>
         </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
+        <div class="navbar-menu" [ngClass]="{ 'is-active': isMenuOpen }">
             <div class="navbar-end">
                 <a href="/" routerLink="/" routerLinkActive="is-active" class="navbar-item">
                     Search movies
@@ -22,12 +22,25 @@
                     Latest ratings
                 </a>
                 <span class="navbar-item">
-                    <a class="button is-primary is-inverted">
-                        <span class="icon">
-                            <i class="fas fa-pencil-alt"></i>
-                        </span>
-                        <span>Add Rating</span>
-                    </a>
+                    <div class="dropdown" [ngClass]="{'is-active': isDropdownOpen}">
+                        <div class="dropdown-trigger">
+                            <button class="button is-primary is-inverted" (click)="isDropdownOpen = !isDropdownOpen">
+                                <span class="icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </span>
+                                <span>Change provider</span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a class="dropdown-item" *ngFor="let mode of availableBackendModes"
+                                    (click)="handleModeSelect(mode)" 
+                                    [ngClass]="{'is-active': isActiveMode(mode)}">
+                                    {{mode}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </span>
             </div>
         </div>

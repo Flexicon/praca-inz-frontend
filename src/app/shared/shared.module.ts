@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 import {
     NotFoundComponent,
@@ -19,7 +18,6 @@ import { LoaderComponent } from './components/loader/loader.component';
         CommonModule,
         ScrollToModule,
         FormsModule,
-        NgSelectModule,
     ],
     declarations: [
         NotFoundComponent,

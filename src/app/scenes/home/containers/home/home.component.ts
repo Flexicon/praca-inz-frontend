@@ -5,6 +5,7 @@ import { MovieModel } from '@app/shared/models';
 import { PaginationData } from '@app/shared/types/pagination.type';
 import { MovieService } from '@app/shared/services';
 import { initialPaginationParams } from '@app/scenes/home/containers/home/home.repository';
+import { ApiService } from '@app/shared/services/api.service';
 
 @Component({
     selector: 'app-home',
@@ -15,11 +16,16 @@ export class HomeComponent implements OnInit {
     paginationData: PaginationData<MovieModel>;
     loading: boolean;
 
-    constructor(private movieService: MovieService, private scrollToService: ScrollToService) {}
+    constructor(
+        private movieService: MovieService,
+        private scrollToService: ScrollToService,
+        private apiService: ApiService,
+    ) {}
 
     ngOnInit() {
         this.resetPaginationParams();
         this.refreshMovies();
+        this.apiService.modeChanged.subscribe(() => this.refreshMovies());
     }
 
     refreshMovies() {
@@ -31,6 +37,7 @@ export class HomeComponent implements OnInit {
             },
             err => {
                 this.loading = false;
+                this.resetPaginationParams();
             },
         );
     }
