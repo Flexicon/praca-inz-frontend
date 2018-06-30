@@ -17,7 +17,6 @@ export class ApiInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
             catchError((response: HttpResponse<any>) => {
-                console.log('hello');
                 const errorMsg = `API Error: ${response.status}: ${response.statusText}`;
                 this.notifications.error('An error has occurred', errorMsg);
 

@@ -28,15 +28,15 @@
                                 <span class="icon">
                                     <i class="fas fa-project-diagram"></i>
                                 </span>
-                                <span>Change provider</span>
+                                <span>{{currentActiveMode}}</span>
                             </button>
                         </div>
                         <div class="dropdown-menu" id="dropdown-menu" role="menu">
                             <div class="dropdown-content">
                                 <a class="dropdown-item" *ngFor="let mode of availableBackendModes"
-                                    (click)="handleModeSelect(mode)" 
-                                    [ngClass]="{'is-active': isActiveMode(mode)}">
-                                    {{mode}}
+                                    (click)="handleModeSelect(mode.value)" 
+                                    [ngClass]="{'is-active': isActiveMode(mode.value)}">
+                                    {{mode.label}}
                                 </a>
                             </div>
                         </div>
