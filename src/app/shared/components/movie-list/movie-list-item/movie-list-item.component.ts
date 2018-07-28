@@ -15,7 +15,7 @@ export class MovieListItemComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.defaultImage = 'https://bulma.io/images/placeholders/128x128.png';
+        this.defaultImage = 'http://via.placeholder.com/150x200?text=No%20poster';
     }
 
 }

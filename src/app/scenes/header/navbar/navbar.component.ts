@@ -3,43 +3,31 @@ import { AvailableBackendModes, BackendMode } from '@app/shared/repository/api.r
 import { ApiService } from '@app/shared/services/api.service';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-    isMenuOpen: boolean;
-    isDropdownOpen: boolean;
-    currentActiveMode: string;
-    availableBackendModes = AvailableBackendModes;
+  isMenuOpen: boolean;
+  isDropdownOpen: boolean;
+  currentModeLabel: string;
+  availableBackendModes = Object.entries(AvailableBackendModes);
 
-    constructor(
-        private apiService: ApiService,
-    ) {}
+  constructor(private apiService: ApiService) {}
 
-    ngOnInit() {
-      this.isMenuOpen = false;
-      this.isDropdownOpen = false;
-      this.currentActiveMode = this.getModeLabel(this.apiService.mode);
-    }
+  ngOnInit() {
+    this.isMenuOpen = false;
+    this.isDropdownOpen = false;
+    this.currentModeLabel = AvailableBackendModes[this.apiService.mode];
+  }
 
-    handleModeSelect(mode: BackendMode) {
-        this.apiService.mode = mode;
-        this.isDropdownOpen = false;
-        this.currentActiveMode = this.getModeLabel(this.apiService.mode);
-    }
+  handleModeSelect(mode: BackendMode) {
+    this.apiService.mode = mode;
+    this.isDropdownOpen = false;
+    this.currentModeLabel = AvailableBackendModes[mode];
+  }
 
-    isActiveMode(mode: BackendMode): boolean {
-        return mode === this.apiService.mode;
-    }
-
-    getModeLabel(mode: BackendMode): string {
-        let modeLabel = '';
-
-        this.availableBackendModes.forEach(m => {
-            modeLabel = m.value === mode ? m.label : modeLabel;
-        });
-
-        return modeLabel;
-    }
+  isActiveMode(mode: BackendMode): boolean {
+    return mode === this.apiService.mode;
+  }
 }
