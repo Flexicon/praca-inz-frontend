@@ -7,20 +7,27 @@ import { environment } from '@env/environment';
 import { PaginationData } from '@app/shared/types/pagination.type';
 import { MovieModel } from '@app/shared/models';
 import { ApiService } from '@app/shared/services/api.service';
+import { MovieDetails } from '@app/shared/types/movie-details.type';
 
 @Injectable({
-    providedIn: 'root',
+  providedIn: 'root'
 })
 export class MovieService {
-    private baseUrl: string;
+  private baseUrl: string;
 
-    constructor(private http: HttpClient, private apiService: ApiService) {
-        this.baseUrl = environment.api;
-    }
+  constructor(private http: HttpClient, private apiService: ApiService) {
+    this.baseUrl = environment.api;
+  }
 
-    getMovies(params): Observable<PaginationData<MovieModel>> {
-        return this.http
-            .get(this.baseUrl + this.apiService.mode + '/movies', { params })
-            .pipe(map(res => <PaginationData<MovieModel>>res));
-    }
+  getMovies(params): Observable<PaginationData<MovieModel>> {
+    return this.http
+      .get(this.baseUrl + this.apiService.mode + '/movies', { params })
+      .pipe(map(res => <PaginationData<MovieModel>>res));
+  }
+
+  getMovieById(id: number): Observable<MovieDetails> {
+    return this.http
+      .get(`${this.baseUrl}${this.apiService.mode}/movies/${id}`)
+      .pipe(map(res => <MovieDetails>res));
+  }
 }

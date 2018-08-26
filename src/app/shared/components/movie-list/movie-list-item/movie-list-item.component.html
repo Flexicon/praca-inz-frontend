@@ -1,22 +1,22 @@
 <div class="card">
-    <div class="columns">
-        <div class="column movie-left is-one-quarter">
-            <div class="image is-3by4">
-                <img [src]="movie.poster ? movie.poster : defaultImage">
-            </div>
-        </div>
-        <div class="column movie-right">
-            <div class="content">
-                <div class="title is-4">{{movie.title}}</div>
-                <p>
-                    <app-genres [genres]="movie.genres"></app-genres>
-                </p>
-            </div>
-            <nav class="actions">
-                <a class="button is-info">
-                    Overview
-                </a>
-            </nav>
-        </div>
+  <div class="columns">
+    <div class="column movie-left is-one-quarter">
+      <div class="image is-3by4">
+        <img [src]="movie.poster ? movie.poster : defaultImage">
+      </div>
     </div>
+    <div class="column movie-right">
+      <div class="content">
+        <div class="title is-4">{{movie.title}}</div>
+        <p>
+          <app-genres [genres]="movie.genres"></app-genres>
+        </p>
+      </div>
+      <nav class="actions">
+        <a class="button is-info" [routerLink]="['/movie', movie?._id]">
+          Overview
+        </a>
+      </nav>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,28 @@
+.movie {
+  &-left {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &-right {
+    padding-bottom: 1.5rem;
+  }
+}
+
+.title {
+  margin-bottom: .75rem;
+}
+
+.rating {
+  .stars {
+    margin: 0 .5rem;
+
+    .star.checked {
+      color: orange;
+    }
+  }
+
+  small {
+    color: #aaa;
+  }
+}

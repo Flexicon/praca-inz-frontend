@@ -16,6 +16,7 @@ import {
     SearchComponent,
 } from '@app/scenes';
 import { ApiInterceptor } from '@app/shared/interceptors/api.interceptor';
+import { MovieComponent } from './scenes/movie/containers/movie/movie.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { ApiInterceptor } from '@app/shared/interceptors/api.interceptor';
         NavbarComponent,
         HomeComponent,
         SearchComponent,
+        MovieComponent,
     ],
     imports: [
         BrowserModule,

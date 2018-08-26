@@ -1,0 +1,48 @@
+<section class="section">
+  <div class="container">
+    <div class="card">
+      <div class="columns">
+        <div class="column movie-left is-one-quarter">
+          <div class="image is-3by4">
+            <img *ngIf="!!movie" [src]="movie?.poster">
+          </div>
+        </div>
+        <div class="column movie-right">
+          <div class="content">
+            <div class="title is-4">{{movie?.title}}</div>
+            <p>
+              <app-genres [genres]="movie ? movie.genres : ''"></app-genres>
+            </p>
+            <p class="rating" title="Rating: {{rating?.avg}} out of 5">
+              <span class="stars">
+                <span class="star" [ngClass]="{checked: rating?.avg >= 1}">
+                  <i class="fa fa-star"></i>
+                </span>
+                <span class="star" [ngClass]="{checked: rating?.avg >= 2}">
+                  <i class="fa fa-star"></i>
+                </span>
+                <span class="star" [ngClass]="{checked: rating?.avg >= 3}">
+                  <i class="fa fa-star"></i>
+                </span>
+                <span class="star" [ngClass]="{checked: rating?.avg >= 4}">
+                  <i class="fa fa-star"></i>
+                </span>
+                <span class="star" [ngClass]="{checked: rating?.avg >= 5}">
+                  <i class="fa fa-star"></i>
+                </span>
+              </span>
+              <small>({{rating?.count}} reviews)</small>
+            </p>
+            <h4>User Tags</h4>
+            <p class="tags">
+              <span class="tag is-dark" *ngFor="let tag of splitTags()">{{tag.tag}}</span>
+            </p>
+            <p *ngIf="!showAllTags && tags.length > 20">
+              <a class="button is-small is-primary" (click)="showAllTags = true">Show all tags ({{tags.length}})</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

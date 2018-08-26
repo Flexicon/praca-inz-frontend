@@ -1,48 +1,43 @@
 <nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="/" routerLink="/" class="navbar-item">
-                <span class="title">
-                    <i class="fas fa-film" data-fa-transform="rotate-45"></i>
-                    MovieRoll
-                </span>
-            </a>
-            <span class="navbar-burger burger" [ngClass]="{ 'is-active': isMenuOpen }" (click)="isMenuOpen = !isMenuOpen">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-        </div>
-        <div class="navbar-menu" [ngClass]="{ 'is-active': isMenuOpen }">
-            <div class="navbar-end">
-                <a href="/" routerLink="/" routerLinkActive="is-active" class="navbar-item">
-                    Search movies
-                </a>
-                <a class="navbar-item">
-                    Latest ratings
-                </a>
-                <span class="navbar-item">
-                    <div class="dropdown" [ngClass]="{'is-active': isDropdownOpen}">
-                        <div class="dropdown-trigger">
-                            <button class="button is-primary is-inverted" (click)="isDropdownOpen = !isDropdownOpen">
-                                <span class="icon">
-                                    <i class="fas fa-project-diagram"></i>
-                                </span>
-                                <span>{{currentModeLabel}}</span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                            <div class="dropdown-content">
-                                <a class="dropdown-item" *ngFor="let mode of availableBackendModes"
-                                    (click)="handleModeSelect(mode[0])"
-                                    [ngClass]="{'is-active': isActiveMode(mode[0])}">
-                                    {{mode[1]}}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </span>
-            </div>
-        </div>
+  <div class="container">
+    <div class="navbar-brand">
+      <a href="/" routerLink="/" class="navbar-item">
+        <span class="title">
+          <i class="fas fa-film" data-fa-transform="rotate-45"></i>
+          MovieRoll
+        </span>
+      </a>
+      <span class="navbar-burger burger" [ngClass]="{ 'is-active': isMenuOpen }" (click)="isMenuOpen = !isMenuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </div>
+    <div class="navbar-menu" [ngClass]="{ 'is-active': isMenuOpen }">
+      <div class="navbar-end">
+        <a href="/" routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }" class="navbar-item">
+          Search movies
+        </a>
+        <span class="navbar-item">
+          <div class="dropdown" [ngClass]="{'is-active': isDropdownOpen}">
+            <div class="dropdown-trigger">
+              <button class="button is-primary is-inverted" (click)="isDropdownOpen = !isDropdownOpen">
+                <span class="icon">
+                  <i class="fas fa-project-diagram"></i>
+                </span>
+                <span>{{currentModeLabel}}</span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+              <div class="dropdown-content">
+                <a class="dropdown-item" *ngFor="let mode of availableBackendModes" (click)="handleModeSelect(mode[0])" [ngClass]="{'is-active': isActiveMode(mode[0])}">
+                  {{mode[1]}}
+                </a>
+              </div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
 </nav>
