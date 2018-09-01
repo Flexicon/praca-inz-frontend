@@ -34,10 +34,10 @@
               <small>({{rating?.count}} reviews)</small>
             </p>
             <h4>User Tags</h4>
-            <p class="tags">
-              <span class="tag is-dark" *ngFor="let tag of splitTags()">{{tag.tag}}</span>
+            <p class="tags" *ngIf="tags">
+              <span class="tag is-info" *ngFor="let tag of splitTags()">{{tag.tag}}</span>
             </p>
-            <p *ngIf="!showAllTags && tags.length > 20">
+            <p *ngIf="!showAllTags && tags?.length > 20">
               <a class="button is-small is-primary" (click)="showAllTags = true">Show all tags ({{tags.length}})</a>
             </p>
           </div>

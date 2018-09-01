@@ -20,7 +20,7 @@ export class ApiInterceptor implements HttpInterceptor {
                 const errorMsg = `API Error: ${response.status}: ${response.statusText}`;
                 this.notifications.error('An error has occurred', errorMsg);
 
-                throw new Error('HttpException');
+                throw new Error(`Http${response.status}Exception`);
             }),
         );
     }

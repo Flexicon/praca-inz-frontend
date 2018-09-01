@@ -2,7 +2,9 @@
   <div class="columns">
     <div class="column movie-left is-one-quarter">
       <div class="image is-3by4">
-        <img [src]="movie.poster ? movie.poster : defaultImage">
+        <a [routerLink]="['/movie', movie?._id]">
+          <img [src]="movie.poster ? movie.poster : defaultImage">
+        </a>
       </div>
     </div>
     <div class="column movie-right">
